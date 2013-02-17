@@ -341,7 +341,7 @@ The reason for this is unknown. Remove this line from `completions'."
 
 (defun inf-ruby-completion-at-point ()
   (if inf-ruby-at-top-level-prompt-p
-      (let* ((curr (replace-regexp-in-string "\n$" "" (thing-at-point 'line)))
+      (let* ((curr (replace-regexp-in-string "\n$" "" (or (thing-at-point 'line) "")))
              (completions (inf-ruby-completions curr)))
         (if completions
             (if (= (length completions) 1)
